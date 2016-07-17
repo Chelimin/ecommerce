@@ -6,20 +6,7 @@
     <div class="container-fluid">
       <div class="row">
         <% @products.each do |product| %>
-          <div class="col-sm-2 col-md-4">
-            <h1><%= product.name %></h1>
-            <%= image_tag(product.image_url, class: "img-responsive") %>
-            <p>Description:<%= product.description %></p>
-            <p>Color:<%= product.color %></p>
-            <strong>$<%= product.price %></strong>
-            <br>
-            <ul class="list-inline">
-              <li><%= link_to 'Show', product %></li>
-              <li><%= link_to 'Edit', edit_product_path(product) %></li>
-              <li><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-            </ul>
-          </div><!-- /col -->
-
+          <%= render partial: "product", locals: {product:product} %>
         <% end %>
       </div>
     </div>
