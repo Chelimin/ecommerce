@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :products
+  #adding all the default CRUD routes (index, show, new, create) to a particular controller.
+  #e.g. resources :products, :invoices, :orders, :users
+  #but if there is no /users page it will generate error.
   resources :orders, only: [:index, :show, :create, :destroy]
   get 'static_pages/about'
 
