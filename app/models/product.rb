@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+validates :name, presence: true
 #product class inherits from AR
   has_many :orders
   has_many :comments
