@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+
+  #devise_for :users
+  # devise_for :is
+  resources :users
   resources :products
   #adding all the default CRUD routes (index, show, new, create) to a particular controller.
   #e.g. resources :products, :invoices, :orders, :users
@@ -9,6 +14,8 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
 
   get 'static_pages/index'
+
+
 
   post 'static_pages/thank_you'
 

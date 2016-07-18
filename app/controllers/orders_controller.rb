@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   #has access to all of methods inside application_controller.rb file
+before_filter :authenticate_user!
 
   def index
   end
