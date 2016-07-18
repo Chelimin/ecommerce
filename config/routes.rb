@@ -4,10 +4,17 @@ Rails.application.routes.draw do
   #devise_for :users
   # devise_for :is
   resources :users
-  resources :products
   #adding all the default CRUD routes (index, show, new, create) to a particular controller.
   #e.g. resources :products, :invoices, :orders, :users
   #but if there is no /users page it will generate error.
+
+
+  resources :products do
+    resources :comments
+  end
+
+#nested resource - treating comments resources as a subset of products
+
   resources :orders, only: [:index, :show, :create, :destroy]
   get 'static_pages/about'
 
@@ -15,10 +22,7 @@ Rails.application.routes.draw do
 
   get 'static_pages/index'
 
-
-
   post 'static_pages/thank_you'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
